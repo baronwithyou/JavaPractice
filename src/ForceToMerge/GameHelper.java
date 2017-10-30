@@ -1,4 +1,4 @@
-package forceToMerge;
+package ForceToMerge;
 
 import java.io.*;
 import java.util.ArrayList;
