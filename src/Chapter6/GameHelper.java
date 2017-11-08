@@ -37,7 +37,7 @@ public class GameHelper {
                         success = false;
                     }
                 } else {
-                    System.out.print("used " + location);
+//                    System.out.print("used " + location);
                     success = false;
                 }
             }
