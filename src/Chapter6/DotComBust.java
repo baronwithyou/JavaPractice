@@ -1,4 +1,4 @@
-package ForceToMerge;
+package Chapter6;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,9 @@ public class DotComBust {
     GameHelper helper = new GameHelper();
     ArrayList<DotCom> dotComList = new ArrayList<>();
     private int numOfGuess = 0;
+    private static int test1 = 1;
+    private static int test2 = 2;
+    private static int test3 = 3;
     public static void main(String []args) {
         DotComBust game = new DotComBust();
         game.setUpGame();
@@ -13,6 +16,9 @@ public class DotComBust {
     }
 
     private void setUpGame() {
+        // 非静态方法可以调用该类的静态方法
+        System.out.println(DotComBust.test(10));
+        System.out.println(test1);
         DotCom one = new DotCom();
         one.setName("baidu.com");
         DotCom two = new DotCom();
@@ -52,5 +58,9 @@ public class DotComBust {
 
     private void finishGame() {
         System.out.println("恭喜你成功击杀所有敌军" + numOfGuess);
+    }
+
+    public static String test(int test1) {
+        return "This is a test" + DotComBust.test1;
     }
 }
