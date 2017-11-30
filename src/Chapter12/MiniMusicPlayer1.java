@@ -27,7 +27,8 @@ public class MiniMusicPlayer1 {
         }
     }
 
-    public static MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+    // 产生音符旋律的函数
+    private static MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
         MidiEvent instrument = null;
         try {
             ShortMessage message = new ShortMessage();
