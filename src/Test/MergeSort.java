@@ -1,21 +1,13 @@
-package Algorithm.Chapter7;
+package Test;
 
-public class MergeSort<AnyType extends Comparable<? super AnyType>> {
+public class MergeSort {
     public static void main(String []args) {
-        Integer []arr = {5, 10, 2, 9, 30, 7, 12};
+        Integer []arr = {4, 5, 1, 6, 9};
         mergeSort(arr);
-
         for (int item : arr)
             System.out.println(item);
     }
-    /**
-     * You can't call something that doesn't exist. Since you haven't created an object,
-     * the non-static method doesn't exist yet. A static method (by definition) always exists.
-     * 该类中静态方法中不添加<AnyType extends Comparable<? super AnyType>>就会报错 --以上截取自stackoverflow
-     * @param a
-     * @param <AnyType>
-     */
-    public static <AnyType extends Comparable<? super AnyType>> void mergeSort(AnyType []a) {
+    private static <AnyType extends Comparable<? super AnyType>> void mergeSort(AnyType []a) {
         AnyType []tmpArray = (AnyType[]) new Comparable[a.length];
 
         mergeSort(a, tmpArray, 0, a.length - 1);
@@ -35,23 +27,19 @@ public class MergeSort<AnyType extends Comparable<? super AnyType>> {
         int tmpPos = leftPos;
         int numElements = rightEnd - leftPos + 1;
 
-        /**
-         * 41-51行是通过比较a的左边和右边
-         * 并放入tmpArray
-         */
-        while(leftPos <= leftEnd && rightPos <= rightEnd)
-            if (a[leftPos].compareTo(a[rightPos]) <= 0)
+        while (leftPos <= leftEnd && rightPos <= rightEnd) {
+            if (a[leftPos].compareTo(a[rightPos]) < 0)
                 tmpArray[tmpPos++] = a[leftPos++];
             else
                 tmpArray[tmpPos++] = a[rightPos++];
+        }
 
-        while(leftPos <= leftEnd)
+        while (leftPos <= leftEnd)
             tmpArray[tmpPos++] = a[leftPos++];
 
-        while(rightPos <= rightEnd)
+        while (rightPos <= rightEnd)
             tmpArray[tmpPos++] = a[rightPos++];
 
-        // Copy tmpArray back
         for (int i = 0; i < numElements; i++, rightEnd--)
             a[rightEnd] = tmpArray[rightEnd];
     }

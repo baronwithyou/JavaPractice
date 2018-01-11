@@ -9,9 +9,14 @@ public class InsertionSortList {
 
     public void sort() {
         ListNode copy = sort(head);
-        while(copy != null) {
-            System.out.println(copy.val);
-            copy = copy.next;
+        printAll(copy);
+    }
+
+    public void printAll(ListNode head) {
+        ListNode tmp = head;
+        while(tmp != null) {
+            System.out.println(tmp.val);
+            tmp = tmp.next;
         }
     }
 
@@ -47,12 +52,43 @@ public class InsertionSortList {
         return dummy.next;
     }
 
+    private ListNode reverse(ListNode head) {
+        if(head == null || head.next == null)
+            return head;
+        ListNode reHead = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return reHead;
+    }
+
+    private ListNode reverse2(ListNode head) {
+        ListNode prev = null;
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
+        }
+        return prev;
+    }
+
+
+    public void printReverse() {
+        head = reverse2(head);
+//        printAll(head);
+    }
+
+    public void print() {
+        printAll(head);
+    }
+
     public static void main(String []args) {
         InsertionSortList sortList = new InsertionSortList();
         sortList.insert(1);
         sortList.insert(3);
         sortList.insert(2);
         sortList.insert(0);
-        sortList.sort();
+        sortList.printReverse();
+        sortList.print();
     }
 }

@@ -13,13 +13,13 @@ public class HeapSort {
      * @param <AnyType>
      */
     private static <AnyType extends Comparable<? super AnyType>> void percDown(AnyType []a, int i, int n) {
-        int child;
+        int child; // child必须在for循环外面定义 因为每次循环都要 i = child（这里的child必须在for循环外）
         AnyType tmp;
 
         for (tmp = a[i]; leftChild(i) < n; i = child) {
             child = leftChild(i);
             // 比较左右子树 选择叫较小的那个
-            if (child != n - 1 && a[child].compareTo(a[child + 1]) < 0)
+            if (child != n - 1 && a[child].compareTo(a[child + 1]) < 0) // child不能是最后一个 因为这样就没有child + 1这个数组下标
                 child++;
             if (tmp.compareTo(a[child]) < 0)
                 a[i] = a[child];
