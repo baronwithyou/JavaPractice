@@ -1,28 +1,29 @@
 package Algorithm.Chapter7;
 
 public class QuickSort {
-    private final static int CUTOFF = 20;
+    private final static int CUTOFF = 1;
     private static <AnyType extends Comparable<? super AnyType>> void quickSort(AnyType []a) {
-        quickSelect(a, 0, a.length - 1, 1);
+        quickSelect(a, 0, a.length - 1);
     }
-    private static <AnyType extends Comparable<? super AnyType>> void quickSelect(AnyType []a, int left, int right, int k) {
+    private static <AnyType extends Comparable<? super AnyType>> void quickSelect(AnyType []a, int left, int right) {
         if (left + CUTOFF <= right) {
             AnyType pivot = median3(a, left, right);
 
-            int i = left, j = right - 1;
+            int i = left + 1, j = right - 2;
             for ( ; ; ) {
-                while (a[++i].compareTo(pivot) < 0) ;
-                while (a[--j].compareTo(pivot) > 0) ;
+                while (a[i].compareTo(pivot) < 0)
+                    i++;
+                while (a[j].compareTo(pivot) > 0)
+                    j--;
                 if (i < j)
                     swapReferences(a, i, j);
                 else
                     break;
             }
 
-            if (k <= i)
-                quickSelect(a, left, i - 1, k);
-            else if (k > i + 1)
-                quickSelect(a, i + 1, right, k);
+            swapReferences(a, i, right - 1);
+            quickSelect(a, left, i - 1);
+            quickSelect(a, i + 1, right);
         } else
             insertionSort(a, left, right);
     }
@@ -38,14 +39,24 @@ public class QuickSort {
         }
     }
 
+    /**
+     * 该方法是修整后的枢纽元策略
+     * 将left、right和center进行排序并且将center的元素放在right-1的位置并且返回pivot值
+     * @param a
+     * @param left
+     * @param right
+     * @param <AnyType>
+     * @return
+     */
     private static <AnyType extends Comparable<? super AnyType>> AnyType median3(AnyType []a, int left, int right) {
         int center = (left + right) / 2;
         if (a[center].compareTo(a[left]) < 0)
-            swapReferences(a, left, right);
+            swapReferences(a, left, center);
         if (a[right].compareTo(a[left]) < 0)
             swapReferences(a, left, right);
         if (a[right].compareTo(a[center]) < 0)
             swapReferences(a, center, right);
+
         swapReferences(a, center, right - 1);
         return a[right - 1];
     }
@@ -57,9 +68,13 @@ public class QuickSort {
     }
 
     public static void main(String []args) {
-        Integer []a = {2, 4, 1, 3, 5};
-        insertionSort(a, 0, a.length - 1);
+        int []a = {3,2,1,4,5};
+//        insertionSort(a, 0, a.length - 1);
+//        swapReferences(a, 0, 1);
 
+
+//        quickSort(a);
+//        median4(a, 0, a.length - 1);
         for (int item : a)
             System.out.println(item);
     }

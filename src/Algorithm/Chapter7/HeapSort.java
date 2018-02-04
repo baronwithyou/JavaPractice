@@ -29,7 +29,7 @@ public class HeapSort {
         a[i] = tmp;
     }
 
-    private static <AnyType> void swapReferences(AnyType []a, int index1, int index2) {
+    public static <AnyType> void swapReferences(AnyType []a, int index1, int index2) {
         AnyType tmp = a[index1];
         a[index1] = a[index2];
         a[index2] = tmp;

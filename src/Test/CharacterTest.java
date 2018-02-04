@@ -1,5 +1,9 @@
 package Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class CharacterTest {
     public static void main(String []args) {
 //        System.out.println(getString());
@@ -9,6 +13,10 @@ public class CharacterTest {
 //            System.out.println(item);
 //        }
 //        System.out.println(firstToUpper("let it be light"));
+        String name = "Martin";
+        String test = "Marin";
+        name = test;
+        System.out.println(name);
     }
 
     // 创建一个长度是5的随机字符串，随机字符有可能是数字，大写字母或者小写字母
