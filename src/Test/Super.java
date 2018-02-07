@@ -2,7 +2,7 @@ package Test;
 
 public class Super {
     double height = 1.8;
-//    public static void main(String []args) {
+//    public static void main(string []args) {
 //        Super2 s1 = new Super2();
 //        Super2 s2 = new Super2();
 //        System.out.println(s1.equals(s2));

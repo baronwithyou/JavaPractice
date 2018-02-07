@@ -7,9 +7,9 @@ import java.util.List;
 public class CharacterTest {
     public static void main(String []args) {
 //        System.out.println(getString());
-//        String []strings = new String[]{"javascript", "java", "php", "go", "python", "c++"};
+//        string []strings = new string[]{"javascript", "java", "php", "go", "python", "c++"};
 //        mergeSort(strings);
-//        for (String item: strings) {
+//        for (string item: strings) {
 //            System.out.println(item);
 //        }
 //        System.out.println(firstToUpper("let it be light"));

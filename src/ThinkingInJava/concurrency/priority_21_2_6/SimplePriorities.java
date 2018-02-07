@@ -1,4 +1,4 @@
-package ThinkingInJava.concurrency;
+package ThinkingInJava.concurrency.priority_21_2_6;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

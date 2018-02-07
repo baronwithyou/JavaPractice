@@ -1,4 +1,4 @@
-package ThinkingInJava.concurrency;
+package ThinkingInJava.concurrency.transform_21_2_9;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +26,6 @@ public class SimpleThread extends Thread {
         while (true) {
             System.out.print(this);
             if (--countDown == 0) {
-                Thread.yield();
                 return;
             }
         }

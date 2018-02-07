@@ -1,4 +1,4 @@
-package ThinkingInJava.concurrency;
+package ThinkingInJava.concurrency.callable_21_2_4;
 
 import java.util.*;
 import java.util.concurrent.*;

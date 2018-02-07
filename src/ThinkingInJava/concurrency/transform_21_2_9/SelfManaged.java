@@ -1,4 +1,4 @@
-package ThinkingInJava.concurrency;
+package ThinkingInJava.concurrency.transform_21_2_9;
 
 public class SelfManaged implements Runnable{
     private int countDown = 5;

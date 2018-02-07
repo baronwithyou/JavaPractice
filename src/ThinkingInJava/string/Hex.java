@@ -1,4 +1,4 @@
-package ThinkingInJava.String;
+package ThinkingInJava.string;
 
 public class Hex {
     public static String format(byte[] data) {

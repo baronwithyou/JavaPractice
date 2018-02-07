@@ -1,4 +1,4 @@
-package ThinkingInJava.String;
+package ThinkingInJava.string;
 
 import java.util.Formatter;
 

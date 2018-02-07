@@ -1,4 +1,6 @@
-package ThinkingInJava.concurrency;
+package ThinkingInJava.concurrency.thread_21_2_2;
+
+import ThinkingInJava.concurrency.task_21_2_1.LiftOff;
 
 public class BasicThreads {
     public static void main(String []args) {
